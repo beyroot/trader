@@ -1,0 +1,8 @@
+services:
+  trader:
+    build: .
+    ports: ["8080:8080"]
+    restart: unless-stopped
+    read_only: true
+    tmpfs: ["/var/cache/nginx", "/var/run"]
+    security_opt: ["no-new-privileges:true"]
