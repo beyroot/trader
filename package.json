@@ -1,0 +1,13 @@
+{
+  "name": "astra-trader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "lint": "node --check src/app.js && node --check src/engine.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=22" }
+}

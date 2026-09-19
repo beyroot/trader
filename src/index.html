@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Astra Trader paper-trading control surface">
+  <title>Astra Trader · Command the market</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/"><span class="mark">A</span> ASTRA<span>TRADER</span></a><div class="mode"><i></i> PAPER ENGINE ONLINE</div><button class="avatar" aria-label="Account">AT</button></header>
+  <main>
+    <section class="hero">
+      <div><p class="eyebrow">AUTONOMOUS MARKET INTELLIGENCE</p><h1>Clarity at<br><em>market speed.</em></h1><p class="lede">A disciplined paper-trading workspace designed for signal, execution, and risk—without the noise.</p></div>
+      <div class="orb" aria-hidden="true"><div></div></div>
+    </section>
+    <section class="metrics" aria-label="Portfolio summary">
+      <article><span>NET LIQUIDITY</span><strong id="equity">—</strong><small class="positive">↗ Simulated portfolio</small></article>
+      <article><span>BUYING POWER</span><strong id="cash">—</strong><small>Settled paper cash</small></article>
+      <article><span>OPEN POSITION</span><strong id="position">—</strong><small>Short selling disabled</small></article>
+    </section>
+    <section class="workspace">
+      <div class="market-panel">
+        <div class="section-head"><div><p class="eyebrow">LIVE WATCH</p><h2>Market pulse</h2></div><span class="timestamp">SIMULATED QUOTES</span></div>
+        <div class="asset-tabs"><button data-symbol="BTC" class="active">BTC <span>Bitcoin</span></button><button data-symbol="ETH">ETH <span>Ethereum</span></button><button data-symbol="SOL">SOL <span>Solana</span></button></div>
+        <div class="chart-head"><div><span>MARK PRICE</span><strong id="market-price">—</strong></div><span class="gain">+2.84% TODAY</span></div>
+        <div class="chart" aria-label="Decorative market chart"><svg viewBox="0 0 700 220" preserveAspectRatio="none"><defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#98ffca" stop-opacity=".24"/><stop offset="1" stop-color="#98ffca" stop-opacity="0"/></linearGradient></defs><path class="area" d="M0 190 C70 178 80 126 145 145 S225 165 270 110 S355 138 400 87 S485 115 525 68 S615 90 700 22 L700 220 L0 220Z"/><path class="line" d="M0 190 C70 178 80 126 145 145 S225 165 270 110 S355 138 400 87 S485 115 525 68 S615 90 700 22"/></svg></div>
+      </div>
+      <aside class="ticket"><p class="eyebrow">EXECUTION</p><h2>Paper order</h2><div class="notice"><b>Shield mode</b><span>No capital is at risk</span></div><form id="order-form"><label>QUANTITY<input id="quantity" type="number" min="0.0001" step="0.0001" value="0.01" required></label><div class="buttons"><button name="side" value="BUY">BUY</button><button name="side" value="SELL" class="secondary">SELL</button></div></form><p id="status" class="status">Ready for simulated execution</p><div class="guardrails"><span>✓ Buying-power check</span><span>✓ No short positions</span><span>✓ Local-only execution</span></div></aside>
+    </section>
+  </main>
+  <footer><span>ASTRA TRADER / PAPER TERMINAL</span><span>NOT FINANCIAL ADVICE · NO LIVE BROKER CONNECTED</span></footer>
+  <script type="module" src="./app.js"></script>
+</body></html>
