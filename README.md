@@ -1,6 +1,6 @@
 # Astra Trader
 
-A dependency-free, responsive paper-trading terminal prepared for Cloudflare Pages. The order engine runs entirely in the browser and deliberately cannot place live trades. It enforces buying-power and no-short-selling guardrails.
+A dependency-free, responsive paper-trading terminal prepared for Cloudflare Workers Static Assets. The order engine runs entirely in the browser and deliberately cannot place live trades. It enforces buying-power and no-short-selling guardrails.
 
 > **Safety:** This is a simulation, not financial advice. No broker, exchange, autonomous model, or live funds are connected. A reviewed server-side broker adapter, authentication, durable audit log, secrets management, and explicit risk controls are required before any live-trading use.
 
@@ -25,18 +25,21 @@ docker compose up --build
 
 Open <http://localhost:8080>. The multi-stage image serves static assets as an unprivileged Nginx user with security headers and a health check.
 
-## Cloudflare Pages deployment
+## Cloudflare Workers deployment
 
-1. Create a Pages project named `astra-trader`.
-2. Create a scoped API token with **Cloudflare Pages: Edit** permission. Never commit or paste it into source files.
-3. Configure GitHub environment secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
-4. Push to `main`; `.github/workflows/deploy.yml` verifies and publishes `dist/`.
+The checked-in `wrangler.toml` maps the generated `dist/` directory to Worker
+static assets, so the standard non-interactive `wrangler deploy` command does
+not need a JavaScript Worker entry point.
+
+1. Create a scoped API token with **Workers Scripts: Edit** permission. Never commit or paste it into source files.
+2. Configure GitHub environment secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+3. Push to `main`; `.github/workflows/deploy.yml` verifies and publishes `dist/`.
 
 For a direct authenticated deployment:
 
 ```bash
 npm run build
-npx wrangler pages deploy dist --project-name=astra-trader
+npx wrangler deploy
 ```
 
 Copy `.env.example` for the required variable names. Rotate any credential disclosed in chat or terminal history before production use.
